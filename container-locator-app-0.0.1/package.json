@@ -1,0 +1,26 @@
+{
+  "name": "container-locator-app-0.0.1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^3.0.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "express-unless": "^0.5.0",
+    "json-parser": "^1.1.5",
+    "json-stringify": "^1.0.0",
+    "memory-cache": "^0.2.0",
+    "properties-reader": "0.0.16",
+    "python-shell": "^1.0.7",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "uuid": "^3.3.2",
+    "zlib": "^1.0.5"
+  }
+}

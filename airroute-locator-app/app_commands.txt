@@ -1,0 +1,5 @@
+virtualenv -p python3 venv
+source venv/bin/activate
+
+export airport_locator_url="http://192.168.1.60:30088/api/airport/city/"
+export route_locator_url="http://192.168.1.60:30086/api/route/"
