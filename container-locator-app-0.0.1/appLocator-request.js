@@ -10,6 +10,7 @@ require('dotenv').config();
 
 function getEndpoint(reqType, reqValue, req, res) {
   var properties = propertiesreader(process.env.APP_PROPERTIES);
+  var envType = process.env.RUNTIME_ENV_TYPE;
   var __CACHE_KEY__ = properties.get('global_CACHE_KEY');
   let key = __CACHE_KEY__ + req.originalUrl || req.url;
   var __HTTP_SUCCESS__ = Number(properties.get('global_HTTP_SUCCESS'));
@@ -31,7 +32,7 @@ function getEndpoint(reqType, reqValue, req, res) {
     var __USERNAME__ = properties.get(reqType + '_user');
     var __PASSWORD__ = properties.get(reqType + '_password');
     var __SOURCE_URL__ = req.protocol + "://" + req.get('host') + req.originalUrl;
-    var __TARGET_URL__ = properties.get(reqType + '_endpoint').replace(properties.get(reqType + '_replaceString'), reqValue)
+    var __TARGET_URL__ = properties.get(reqType + '_' + envType + '_endpoint').replace(properties.get(reqType + '_replaceString'), reqValue)
 
     var start = new Date();
     request.get({
