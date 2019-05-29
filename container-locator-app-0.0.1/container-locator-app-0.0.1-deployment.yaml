@@ -6,19 +6,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: geocode-locator-app
+  name: container-locator-app
 spec:
   selector:
       matchLabels:
-        app: geocode-locator-app
+        app: container-locator-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: geocode-locator-app
+        app: container-locator-app
     spec:
       nodeSelector:
-        kubernetes.io/experience-apis: allow
+        kubernetes.io/process-apis: allow
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -27,7 +27,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - geocode-locator-app
+                - container-locator-app
             topologyKey: "kubernetes.io/hostname"
       # ----------------------------------
       # will target master node deployment
@@ -37,14 +37,14 @@ spec:
       #    effect: "NoSchedule"
       # ----------------------------------
       containers:
-        - name: geocode-locator-app
-          image: srivatsabc/geocode-locator-app:002 #v 002 is for kubernetes cluster and v 001 is for dockerswarm. DB connection string changes
+        - name: container-locator-app
+          image: srivatsabc/container-locator-app:001 #v 002 is for kubernetes cluster and v 001 is for dockerswarm. DB connection string changes
           imagePullPolicy: Always
           ports:
-            - containerPort: 8074
+            - containerPort: 8073
           env:
             - name: RUNTIME_ENV_TYPE #In order to help mule application pickup the right jdbc properties
               valueFrom:
                 configMapKeyRef:
-                  name: geocode-locator-app-config
+                  name: container-locator-app-config
                   key: RUNTIME_ENV_TYPE
