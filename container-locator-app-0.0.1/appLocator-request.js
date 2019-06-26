@@ -33,7 +33,6 @@ function getEndpoint(reqType, reqValue, req, res) {
     var __PASSWORD__ = properties.get(reqType + '_password');
     var __SOURCE_URL__ = req.protocol + "://" + req.get('host') + req.originalUrl;
     var __TARGET_URL__ = properties.get(reqType + '_' + envType + '_endpoint').replace(properties.get(reqType + '_replaceString'), reqValue)
-
     var start = new Date();
     request.get({
       url: __TARGET_URL__,
