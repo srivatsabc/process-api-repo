@@ -17,7 +17,7 @@ let jsonUtils = require('./utils/jsonUtils');
 const url = require('url');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.get('/v2/airports/iata/:iata_code', function (req, res) {
+app.get('/processapi/v2/airports/iata/:iata_code', function (req, res) {
   var __CACHE_TIMEOUT__ = Number(properties.get('iata_filter' + '_CACHE_TIMEOUT'));
   let key = __CACHE_KEY__ + req.originalUrl || req.url;
   var __HTTP_SERVICE_NOT_FOUND__ = Number(properties.get('global_HTTP_SERVICE_NOT_FOUND'));
@@ -55,7 +55,7 @@ app.get('/v2/airports/iata/:iata_code', function (req, res) {
   });
 })
 
-app.get('/v2/airports/country/:country_code', function (req, res) {
+app.get('/processapi/v2/airports/country/:country_code', function (req, res) {
   var __CACHE_TIMEOUT__ = Number(properties.get('iata_filter' + '_CACHE_TIMEOUT'));
   let key = __CACHE_KEY__ + req.originalUrl || req.url;
   var __HTTP_SERVICE_NOT_FOUND__ = Number(properties.get('global_HTTP_SERVICE_NOT_FOUND'));
