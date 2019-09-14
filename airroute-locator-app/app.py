@@ -24,7 +24,7 @@ def returnAirportInfo(city):
     api_url = config.get(envType, envType + '.airport.locator.url') + city
     print('api_url : ' + api_url)
     airport_response = requests.get(api_url)
-    print("aiport api content : " + str(airport_response.text))
+    #print("aiport api content : " + str(airport_response.text))
     airport_response_json = json.loads(airport_response.text)
 
     data = {}
@@ -34,7 +34,7 @@ def returnAirportInfo(city):
         api_url = config.get(envType, envType + '.route.locator.url') +  i["iata"]
         print('api_url : ' + api_url)
         route_response = requests.get(api_url)
-        print("route api content : " + route_response.text)
+        #print("route api content : " + route_response.text)
         route_response_json = json.loads(route_response.text)
         data[x] = {}
         data[x]['airport'] = i;
