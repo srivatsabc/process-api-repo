@@ -20,6 +20,7 @@
     "query-string": "^6.4.2",
     "redis": "^2.8.0",
     "request": "^2.88.0",
+    "swagger-ui-express": "^4.0.7",
     "url": "^0.11.0",
     "uuid": "^3.3.2",
     "zlib": "^1.0.5"
