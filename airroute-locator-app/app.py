@@ -19,7 +19,7 @@ config.read('app.properties')
 def hello_world():
     return jsonify({'message' : 'Hello, World!'})
 
-@app.route('/api/airroute/<string:city>', methods=['GET'])
+@app.route('/processapi/v1/airroute/<string:city>', methods=['GET'])
 def returnAirportInfo(city):
     api_url = config.get(envType, envType + '.airport.locator.url') + city
     print('api_url : ' + api_url)
